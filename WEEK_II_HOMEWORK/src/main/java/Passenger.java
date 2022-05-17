@@ -1,3 +1,3 @@
 public interface Passenger {
-    void getIn();
+    void getIn(int waiting);
 }
