@@ -1,4 +1,4 @@
-public abstract class Bus implements Opreation, bus_Passenger, Accelerate {
+public class Bus implements Opreation, bus_Passenger, Accelerate, Check_status {
 
     static int count = 0; //인스턴스 갯수
     int serialNo;
@@ -53,11 +53,11 @@ public abstract class Bus implements Opreation, bus_Passenger, Accelerate {
         }
     }
 
-    public void disembark(int gottaoutheea) {
-        if (gottaoutheea > currentPsg) {
+    public void disembark(int gottaOutHeea) {
+        if (gottaOutHeea > currentPsg) {
             System.out.println("그건 불가능합니다");}
-        else {currentPsg -= gottaoutheea;
-            System.out.println("총 "+gottaoutheea+"명이 내려서, 현재 탑승객 수는 "+currentPsg+"명 입니다.");
+        else {currentPsg -= gottaOutHeea;
+            System.out.println("총 "+gottaOutHeea+"명이 내려서, 현재 탑승객 수는 "+currentPsg+"명 입니다.");
         }
     }
 
@@ -69,5 +69,16 @@ public abstract class Bus implements Opreation, bus_Passenger, Accelerate {
         } else if (acceleration < 0) {
             System.out.println("감속합니다. 현재 속도는 " + speed + "입니다.");
         }
+    }
+
+    @Override
+    public void checkStatus() {
+        System.out.println("-----------[버스번호: "+serialNo+"]-----------");
+        System.out.println("버스요금: "+fee);
+        System.out.println("최대 손님수: "+maxPsg);
+        System.out.println("현재승객: "+currentPsg);
+        System.out.println("주유량: "+fuel);
+        System.out.println("현재속도: "+speed);
+        System.out.println("운행상태: "+inOperation);
     }
 }

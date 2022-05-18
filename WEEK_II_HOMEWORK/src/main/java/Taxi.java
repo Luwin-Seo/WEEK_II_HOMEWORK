@@ -1,4 +1,4 @@
-public class Taxi implements Opreation, texi_Passenger, Accelerate {
+public class Taxi implements Opreation, texi_Passenger, Accelerate, Check_status {
 
     static int count = 0; //인스턴스 갯수
     int serialNo;
@@ -10,6 +10,7 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate {
 
     int fuel;
     int speed;
+    String destination = "";
     int minFeeDist;
     int currentPsg;
     int distToGo;
@@ -21,8 +22,6 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate {
         this.fuel = fuel;
         this.speed = speed;
         this.minFeeDist = 3000;
-        this.currentPsg = 0;
-        this.distToGo = 0;
         this.minimumFee = 6500;
         this.isOccupied = false;
     }
@@ -35,23 +34,25 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate {
         } else {
             distToGo = 0;
             currentPsg = 0;
+            destination = "";
             System.out.println("연료를 확인해 주세요.");
         }
-
     }
 
     @Override
     public void endOperation() {
         System.out.println("이용해 주셔서 감사합니다.");
+        destination = "";
         distToGo = 0;
         isOccupied = false;
     }
 
     @Override
-    public void getIn(int waiting, int wantToGo) {
+    public void getIn(int waiting, int farToGo, String whereToGo) {
         if (waiting <= 4) {
             currentPsg = waiting;
-            distToGo = wantToGo;
+            destination = whereToGo;
+            distToGo = farToGo;
             startOperation();
 
         }
@@ -67,7 +68,7 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate {
             endOperation();
         } else {
             totalFee = minimumFee + 200 * (int)((distToGo - minFeeDist) / 151);
-            System.out.println("목적지에 도착했습니다. 총 택시 이용요금은 "+totalFee+"원 입니다.");
+            System.out.println(destination+"에 도착했습니다. 총 택시 이용요금은 "+totalFee+"원 입니다.");
             currentPsg = 0;
             endOperation();
         }
@@ -81,5 +82,18 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate {
         } else if (acceleration < 0) {
             System.out.println("감속합니다. 현재 속도는 " + speed + "입니다.");
         }
+    }
+
+    @Override
+    public void checkStatus() {
+        System.out.println("-----------[택시번호: "+serialNo+"]-----------");
+        System.out.println("주유량: "+fuel);
+        System.out.println("현재속도: "+speed);
+        System.out.println("목적지: "+destination);
+        System.out.println("기본요금거리: "+minFeeDist);
+        System.out.println("목적지까지의 거리: "+distToGo);
+        System.out.println("기본요금: "+minimumFee);
+        System.out.println("현재승객: "+currentPsg);
+        System.out.println("운행상태: "+isOccupied);
     }
 }
