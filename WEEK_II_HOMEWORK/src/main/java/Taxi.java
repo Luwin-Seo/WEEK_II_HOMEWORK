@@ -1,4 +1,4 @@
-public class Taxi extends Car implements Opreation, texi_Passenger, Check_status {
+public class Taxi extends Transport implements Opreation, texi_Passenger, Check_status {
 
     static int count = 0; //인스턴스 갯수
     int serialNo;
