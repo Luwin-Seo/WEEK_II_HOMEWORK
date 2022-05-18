@@ -23,7 +23,7 @@ public class Taxi extends Transport implements Opreation, taxi_Passenger, Check_
         this.isOccupied = false;
         this.hornSound = "삡- 삡-";
     }
-
+    @Override
     public void horn(){
         System.out.println("택시번호: "+serialNo+"이가 경적을 울립니다. "+hornSound);
     }
