@@ -54,7 +54,8 @@ public class Bus extends Transport implements Opreation, bus_Passenger, Check_st
 
     public void disembark(int gottaOutHeea) {
         if (gottaOutHeea > currentPsg) {
-            System.out.println("그건 불가능합니다");}
+            System.out.println("시공의 폭풍에서 사람들이 흘러나옵니다!");
+            currentPsg = 0;}
         else {currentPsg -= gottaOutHeea;
             System.out.println("총 "+gottaOutHeea+"명이 내려서, 현재 탑승객 수는 "+currentPsg+"명 입니다.");
         }
