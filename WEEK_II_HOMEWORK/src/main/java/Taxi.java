@@ -12,9 +12,10 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate, Check_status
     int speed;
     String destination = "";
     int minFeeDist;
+    int maxPsg;
     int currentPsg;
     int distToGo;
-    int minimumFee;
+    int Fee;
     int totalFee;
     boolean isOccupied;
 
@@ -22,7 +23,8 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate, Check_status
         this.fuel = fuel;
         this.speed = speed;
         this.minFeeDist = 3000;
-        this.minimumFee = 6500;
+        this.maxPsg = 4;
+        this.Fee = 6500;
         this.isOccupied = false;
     }
 
@@ -49,14 +51,14 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate, Check_status
 
     @Override
     public void getIn(int waiting, int farToGo, String whereToGo) {
-        if (waiting <= 4) {
+        if (waiting <= maxPsg) {
             currentPsg = waiting;
             destination = whereToGo;
             distToGo = farToGo;
             startOperation();
 
         }
-        else if (waiting > 4) {
+        else if (waiting > maxPsg) {
             System.out.println("택시 정원 초과입니다");
         }
     }
@@ -67,7 +69,7 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate, Check_status
             System.out.println("출발하지 못했습니다.");
             endOperation();
         } else {
-            totalFee = minimumFee + 200 * (int)((distToGo - minFeeDist) / 151);
+            totalFee = Fee + 200 * (int)((distToGo - minFeeDist) / 151);
             System.out.println(destination+"에 도착했습니다. 총 택시 이용요금은 "+totalFee+"원 입니다.");
             currentPsg = 0;
             endOperation();
@@ -92,7 +94,7 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate, Check_status
         System.out.println("목적지: "+destination);
         System.out.println("기본요금거리: "+minFeeDist);
         System.out.println("목적지까지의 거리: "+distToGo);
-        System.out.println("기본요금: "+minimumFee);
+        System.out.println("기본요금: "+Fee);
         System.out.println("현재승객: "+currentPsg);
         System.out.println("운행상태: "+isOccupied);
     }
