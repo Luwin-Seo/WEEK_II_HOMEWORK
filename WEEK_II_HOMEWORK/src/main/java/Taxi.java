@@ -41,6 +41,7 @@ public class Taxi extends Transport implements Opreation, taxi_Passenger, Check_
         System.out.println("이용해 주셔서 감사합니다.");
         destination = "";
         distToGo = 0;
+        totalFee = 0;
         isOccupied = false;
     }
 
