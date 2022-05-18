@@ -15,6 +15,11 @@ public class Bus extends Transport implements Opreation, bus_Passenger, Check_st
         this.fuel = fuel;
         this.speed = speed;
         this.inOperation = true;
+        this.hornSound = "뽱뽱!!!";
+    }
+
+    public void horn(){
+        System.out.println("버스번호: "+serialNo+"이가 경적을 울립니다. "+hornSound);
     }
 
     @Override

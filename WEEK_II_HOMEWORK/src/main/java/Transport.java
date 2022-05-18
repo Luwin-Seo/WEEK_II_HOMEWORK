@@ -4,6 +4,7 @@ abstract class Transport {
     int maxPsg;
     int currentPsg;
     int fee;
+    String hornSound;
 
     public void changeSpeed(int acceleration) {
         speed += acceleration;
@@ -12,6 +13,10 @@ abstract class Transport {
         } else if (acceleration < 0) {
             System.out.println("감속합니다. 현재 속도는 " + speed + "입니다.");
         }
+    }
+
+    public void horn() {
+        System.out.println(hornSound);
     }
 
 }

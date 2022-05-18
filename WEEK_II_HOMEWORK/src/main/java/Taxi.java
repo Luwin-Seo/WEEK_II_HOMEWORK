@@ -21,6 +21,11 @@ public class Taxi extends Transport implements Opreation, taxi_Passenger, Check_
         this.maxPsg = 4;
         this.fee = 6500;
         this.isOccupied = false;
+        this.hornSound = "삡- 삡-";
+    }
+
+    public void horn(){
+        System.out.println("택시번호: "+serialNo+"이가 경적을 울립니다. "+hornSound);
     }
 
     @Override
