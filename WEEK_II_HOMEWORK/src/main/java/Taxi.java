@@ -17,7 +17,7 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate {
     int totalFee;
     boolean isOccupied;
 
-    public Taxi(int fuel, int speed, int minimumFee) {
+    public Taxi(int fuel, int speed) {
         this.fuel = fuel;
         this.speed = speed;
         this.minFeeDist = 3000;
@@ -31,32 +31,46 @@ public class Taxi implements Opreation, texi_Passenger, Accelerate {
     public void startOperation() {
         if (fuel >= 10) {
             isOccupied = true;
+            System.out.println("운행을 시작합니다. 목적지까지의 거리: "+distToGo+"m");
         } else {
+            distToGo = 0;
+            currentPsg = 0;
             System.out.println("연료를 확인해 주세요.");
         }
-        currentPsg = 0;
+
     }
 
     @Override
     public void endOperation() {
-        System.out.println("목적지에 도착하였습니다.");
+        System.out.println("이용해 주셔서 감사합니다.");
         distToGo = 0;
         isOccupied = false;
     }
 
     @Override
     public void getIn(int waiting, int wantToGo) {
-        if (waiting < 4) {currentPsg = waiting; distToGo = wantToGo;}
-        else if (waiting == 5) {
+        if (waiting <= 4) {
+            currentPsg = waiting;
+            distToGo = wantToGo;
+            startOperation();
+
+        }
+        else if (waiting > 4) {
             System.out.println("택시 정원 초과입니다");
         }
     }
 
     @Override
     public void getOut() {
-        totalFee = minimumFee + 200 * (int) (distToGo - minFeeDist) / 151;
-        currentPsg = 0;
-        endOperation();
+        if (distToGo == 0) {
+            System.out.println("출발하지 못했습니다.");
+            endOperation();
+        } else {
+            totalFee = minimumFee + 200 * (int)((distToGo - minFeeDist) / 151);
+            System.out.println("목적지에 도착했습니다. 총 택시 이용요금은 "+totalFee+"원 입니다.");
+            currentPsg = 0;
+            endOperation();
+        }
     }
 
     @Override
