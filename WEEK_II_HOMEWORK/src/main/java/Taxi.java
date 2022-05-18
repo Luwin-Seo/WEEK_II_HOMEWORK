@@ -82,6 +82,6 @@ public class Taxi extends Transport implements Opreation, texi_Passenger, Check_
         System.out.println("전체요금: "+totalFee);
         System.out.println("현재승객: "+currentPsg);
         System.out.println("운행상태: "+isOccupied);
-        System.out.println("---------------------------------------------");
+        System.out.println("----------------------------------");
     }
 }
