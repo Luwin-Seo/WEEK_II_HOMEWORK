@@ -1,13 +1,8 @@
+import java.util.UUID;
+
 public class Taxi extends Transport implements Opreation, taxi_Passenger, Check_status {
 
-    static int count = 0; //인스턴스 갯수
-    int serialNo;
-
-    {
-        ++count;
-        serialNo = count;
-    }
-
+    UUID serialNo = UUID.randomUUID();
     String destination = "";
     int minFeeDist;
     int distToGo;

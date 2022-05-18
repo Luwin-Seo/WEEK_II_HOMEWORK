@@ -1,11 +1,9 @@
+import java.util.UUID;
+
 public class Bus extends Transport implements Opreation, bus_Passenger, Check_status {
 
     static int count = 0; //인스턴스 갯수
-    int serialNo;
-    {
-        ++count;
-        serialNo = count;
-    }
+    UUID serialNo = UUID.randomUUID();
     boolean inOperation;
 
     public Bus(int maxPsg, int fee, int currentPsg, int fuel, int speed) {
