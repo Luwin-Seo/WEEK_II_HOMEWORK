@@ -23,7 +23,7 @@ public class Main {
        bus2.endOperation();
        bus2.fuel = 5;
        bus2.endOperation();
-
+       bus2.checkStatus();
 
     }
 }
