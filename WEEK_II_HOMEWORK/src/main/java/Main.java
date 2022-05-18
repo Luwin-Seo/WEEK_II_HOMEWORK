@@ -8,6 +8,11 @@ public class Main {
        taxi1.checkStatus();
        Bus bus1 = new Bus(48,1300,20,30,40);
        bus1.checkStatus();
+       Bus bus2 = new Bus(25,1000,10,30,20);
+       bus2.checkStatus();
+       Taxi taxi2 = new Taxi(20,60);
+       taxi2.getIn(3,2500, "니 마음속");
+       taxi2.checkStatus();
 
     }
 }

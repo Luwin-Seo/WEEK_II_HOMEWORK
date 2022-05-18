@@ -50,7 +50,8 @@ public class Taxi extends Transport implements Opreation, texi_Passenger, Check_
             currentPsg = waiting;
             destination = whereToGo;
             distToGo = farToGo;
-            totalFee = fee + 200 * (int)((distToGo - minFeeDist) / 151);
+            totalFee = (distToGo <= minFeeDist) ? fee :
+                    fee + 200 * (int)((distToGo - minFeeDist) / 151);
             startOperation();
         }
         else if (waiting > maxPsg) {
