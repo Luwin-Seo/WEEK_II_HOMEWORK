@@ -32,9 +32,10 @@ public class Bus extends Transport implements Opreation, bus_Passenger, Check_st
     public void endOperation() {
         if (fuel < 10) {
             inOperation = false;
-        } else {
             System.out.println("주유량을 확인해주세요");
-            System.out.println("운행을 멈추고 차고지로 돌아갑니다");
+            System.out.println("버스"+serialNo+"은는 운행을 멈추고 차고지로 돌아갑니다");
+        } else {
+            System.out.println("아직 버스"+serialNo+"은는 연료가 충분합니다");
         }
     }
 

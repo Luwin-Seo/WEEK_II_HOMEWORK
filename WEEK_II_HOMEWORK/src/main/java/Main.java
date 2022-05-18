@@ -19,6 +19,10 @@ public class Main {
        bus1.checkStatus();
        taxi1.horn();
        bus1.horn();
+       bus1.endOperation();
+       bus2.endOperation();
+       bus2.fuel = 5;
+       bus2.endOperation();
 
 
     }
