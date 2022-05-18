@@ -1,4 +1,4 @@
-public class Bus implements Opreation, Passenger, Accelerate {
+public abstract class Bus implements Opreation, bus_Passenger, Accelerate {
 
     static int count = 0; //인스턴스 갯수
     int serialNo;
@@ -23,6 +23,12 @@ public class Bus implements Opreation, Passenger, Accelerate {
     }
 
     @Override
+    public void startOperation() {
+        if (fuel >= 10) {
+            inOperation = true;}
+    }
+
+    @Override
     public void endOperation() {
         if (fuel < 10) {
             inOperation = false;
@@ -44,6 +50,14 @@ public class Bus implements Opreation, Passenger, Accelerate {
         } else if (currentPsg != maxPsg && maxPsg - currentPsg < waiting) {
             System.out.println(waiting+"명 중 "+(maxPsg - currentPsg)+"명을 태우고 버스가 가득찼습니다. 다음 버스를 이용해 주시기 바랍니다");
             currentPsg = maxPsg;
+        }
+    }
+
+    public void disembark(int gottaoutheea) {
+        if (gottaoutheea > currentPsg) {
+            System.out.println("그건 불가능합니다");}
+        else {currentPsg -= gottaoutheea;
+            System.out.println("총 "+gottaoutheea+"명이 내려서, 현재 탑승객 수는 "+currentPsg+"명 입니다.");
         }
     }
 
