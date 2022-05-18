@@ -65,5 +65,6 @@ public class Bus extends Transport implements Opreation, bus_Passenger, Check_st
         System.out.println("주유량: "+fuel);
         System.out.println("현재속도: "+speed);
         System.out.println("운행상태: "+inOperation);
+        System.out.println("---------------------------------------------");
     }
 }

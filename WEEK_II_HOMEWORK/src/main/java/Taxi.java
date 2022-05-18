@@ -50,6 +50,7 @@ public class Taxi extends Transport implements Opreation, texi_Passenger, Check_
             currentPsg = waiting;
             destination = whereToGo;
             distToGo = farToGo;
+            totalFee = fee + 200 * (int)((distToGo - minFeeDist) / 151);
             startOperation();
         }
         else if (waiting > maxPsg) {
@@ -63,7 +64,6 @@ public class Taxi extends Transport implements Opreation, texi_Passenger, Check_
             System.out.println("출발하지 못했습니다.");
             endOperation();
         } else {
-            totalFee = fee + 200 * (int)((distToGo - minFeeDist) / 151);
             System.out.println(destination+"에 도착했습니다. 총 택시 이용요금은 "+totalFee+"원 입니다.");
             currentPsg = 0;
             endOperation();
@@ -82,5 +82,6 @@ public class Taxi extends Transport implements Opreation, texi_Passenger, Check_
         System.out.println("전체요금: "+totalFee);
         System.out.println("현재승객: "+currentPsg);
         System.out.println("운행상태: "+isOccupied);
+        System.out.println("---------------------------------------------");
     }
 }
