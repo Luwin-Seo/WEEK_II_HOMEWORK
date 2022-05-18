@@ -1,4 +1,4 @@
-public class Bus implements Opreation, bus_Passenger, Accelerate, Check_status {
+public class Bus extends Car implements Opreation, bus_Passenger, Check_status {
 
     static int count = 0; //인스턴스 갯수
     int serialNo;
@@ -6,11 +6,6 @@ public class Bus implements Opreation, bus_Passenger, Accelerate, Check_status {
         ++count;
         serialNo = count;
     }
-    int maxPsg;
-    int fee;
-    int currentPsg;
-    int fuel;
-    int speed;
     boolean inOperation;
 
     public Bus(int maxPsg, int fee, int currentPsg, int fuel, int speed) {
@@ -58,16 +53,6 @@ public class Bus implements Opreation, bus_Passenger, Accelerate, Check_status {
             System.out.println("그건 불가능합니다");}
         else {currentPsg -= gottaOutHeea;
             System.out.println("총 "+gottaOutHeea+"명이 내려서, 현재 탑승객 수는 "+currentPsg+"명 입니다.");
-        }
-    }
-
-    @Override
-    public void changeSpeed(int acceleration) {
-        speed += acceleration;
-        if (acceleration > 0) {
-            System.out.println("가속합니다. 현재 속도는 " + speed + "입니다.");
-        } else if (acceleration < 0) {
-            System.out.println("감속합니다. 현재 속도는 " + speed + "입니다.");
         }
     }
 
