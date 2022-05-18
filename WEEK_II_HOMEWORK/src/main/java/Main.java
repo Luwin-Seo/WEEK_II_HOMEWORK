@@ -15,6 +15,8 @@ public class Main {
        taxi2.checkStatus();
        taxi2.getOut();
        taxi2.checkStatus();
+       bus1.getIn(30);
+       bus1.checkStatus();
 
 
     }

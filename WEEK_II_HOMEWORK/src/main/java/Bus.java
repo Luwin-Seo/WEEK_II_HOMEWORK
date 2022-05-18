@@ -43,7 +43,7 @@ public class Bus extends Transport implements Opreation, bus_Passenger, Check_st
         } else if (inOperation == false) {
             System.out.println("버스가 운행중이 아닙니다.");
         } else if (currentPsg != maxPsg && maxPsg - currentPsg < waiting) {
-            System.out.println(waiting+"명 중 "+(maxPsg - currentPsg)+"명을 태우고 버스가 가득찼습니다. 다음 버스를 이용해 주시기 바랍니다");
+            System.out.println(waiting+"명 중 "+(maxPsg - currentPsg)+"명을 태우고 버스가 가득찼습니다. 다음 버스를 이용해 주시기 바랍니다.");
             currentPsg = maxPsg;
         }
     }
