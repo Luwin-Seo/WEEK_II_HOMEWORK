@@ -1,5 +1,4 @@
 import java.util.UUID;
-
 public class Bus extends Transport implements Opreation, bus_Passenger, Check_status {
 
     static int count = 0; //인스턴스 갯수

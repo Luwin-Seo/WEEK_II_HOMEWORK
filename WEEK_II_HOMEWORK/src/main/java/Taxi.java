@@ -1,5 +1,4 @@
 import java.util.UUID;
-
 public class Taxi extends Transport implements Opreation, taxi_Passenger, Check_status {
 
     UUID serialNo = UUID.randomUUID();
