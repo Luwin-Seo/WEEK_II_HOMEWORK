@@ -79,6 +79,7 @@ public class Taxi extends Transport implements Opreation, texi_Passenger, Check_
         System.out.println("기본요금거리: "+minFeeDist);
         System.out.println("목적지까지의 거리: "+distToGo);
         System.out.println("기본요금: "+fee);
+        System.out.println("전체요금: "+totalFee);
         System.out.println("현재승객: "+currentPsg);
         System.out.println("운행상태: "+isOccupied);
     }
