@@ -14,5 +14,6 @@ public class Main {
        taxi2.getIn(3,2500, "니 마음속");
        taxi2.checkStatus();
 
+
     }
 }
