@@ -1,4 +1,4 @@
 public interface Opreation {
-    void startOperation();
-    void endOperation();
+    void startService();
+    void endService();
 }

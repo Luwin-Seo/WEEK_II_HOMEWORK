@@ -16,7 +16,7 @@ public class Main {
        taxi2.getOut();
        taxi2.checkStatus();
        bus1.getIn(30);
-       bus1.disembark(20);
+       bus1.disembark(50);
        bus1.checkStatus();
        taxi1.horn();
        bus1.horn();

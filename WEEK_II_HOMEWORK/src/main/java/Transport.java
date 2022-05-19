@@ -4,7 +4,9 @@ abstract class Transport {
     int maxPsg;
     int currentPsg;
     int fee;
+    boolean inOperation;
     String hornSound;
+    int totalRevenue;
 
     public void changeSpeed(int acceleration) {
         speed += acceleration;
