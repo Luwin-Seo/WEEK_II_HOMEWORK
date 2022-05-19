@@ -21,5 +21,11 @@ abstract class Transport {
         System.out.println(hornSound);
     }
 
+    public void stop() {
+        if (fuel <= 0) {
+            System.out.println("금일 운행이 중단되었 습니다. 견인조치가 필요합니다.");
+        }
+    }
+
 }
 

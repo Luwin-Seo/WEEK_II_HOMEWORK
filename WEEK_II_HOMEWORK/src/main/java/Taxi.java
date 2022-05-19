@@ -15,6 +15,7 @@ public class Taxi extends Transport implements Opreation, taxi_Passenger, Check_
         this.maxPsg = 4;
         this.fee = 6500;
         this.isOccupied = false;
+        this.inOperation = true;
         this.totalRevenue = 0;
         this.hornSound = "삡- 삡-";
     }
@@ -25,7 +26,7 @@ public class Taxi extends Transport implements Opreation, taxi_Passenger, Check_
 
     @Override
     public void startService() {
-        if (fuel >= distToGo/2000 && inOperation) {
+        if (fuel >= distToGo/10000 && inOperation) {
             isOccupied = true;
             System.out.println("운행을 시작합니다. 목적지까지의 거리: "+distToGo+"m");
         } else {
@@ -39,7 +40,7 @@ public class Taxi extends Transport implements Opreation, taxi_Passenger, Check_
     @Override
     public void endService() {
         System.out.println("이용해 주셔서 감사합니다.");
-        fuel -= (distToGo > 2000) ? distToGo/2000 : 1 ;
+        fuel -= (distToGo > 10000) ? distToGo/10000 : 1 ;
         destination = "";
         distToGo = 0;
         totalRevenue += totalFee;
@@ -51,11 +52,12 @@ public class Taxi extends Transport implements Opreation, taxi_Passenger, Check_
 
     @Override
     public void checkFuel() {
-        if (fuel <= 0) {
+        if (fuel < 1) {stop();}
+        else if (fuel < 10) {
             inOperation = false;
-            System.out.println("금일 운행을 종료합니다. 오늘의 총 수입은 "+totalRevenue+"원 입니다.");
+            System.out.println("주유가 필요합니다.");
         } else {inOperation = true;
-            System.out.println("주행할 수 있습니다.");
+            System.out.println("이 택시의 현재 주유량은 "+fuel+"리터 입니다.");
         }
     }
 
