@@ -23,8 +23,9 @@ public class Bus extends Transport implements Opreation, bus_Passenger, Check_st
 
     @Override
     public void startService() {
-        if (fuel >= 10) {
-            inOperation = true;}
+        inGarage = false;
+        inOperation = true;
+        System.out.println("버스번호 " + serialNo + "가 운행을 시작합니다.");
     }
 
     @Override

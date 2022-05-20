@@ -16,6 +16,12 @@ public class Main {
        taxi1.checkStatus();
        GasStation gasStation = new GasStation(1000000, 2000);
        gasStation.reFuel(taxi1, 70);
+       Bus bus1 = new Bus(48,1800,15,8,40);
+       bus1.disembark(10);
+       BusGarage busGarage1 = new BusGarage(1000000, 4);
+       bus1.checkStatus();
+       busGarage1.busArrival(bus1);
+       busGarage1.busDeparture(bus1);
 
     }
 }
